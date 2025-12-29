@@ -6,7 +6,7 @@ FROM caddy:${CADDY_VERSION}-builder AS builder
 
 RUN xcaddy build ${CADDY_VERSION} \
     --with github.com/caddy-dns/cloudflare \
-    --with github.com/lucaslorentz/caddy-docker-proxy/v2
+    --with github.com/lucaslorentz/caddy-docker-proxy/v2@v2.9.1
 
 FROM caddy:${CADDY_VERSION}
 
