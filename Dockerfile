@@ -1,23 +1,9 @@
-# syntax=docker/dockerfile:1
+FROM caddy:builder AS builder
 
-ARG CADDY_VERSION=2.8.4
+RUN xcaddy build \
+    --with github.com/caddy-dns/cloudflare
+    --with github.com/lucaslorentz/caddy-docker-proxy/v2
 
-############################
-# Build custom Caddy binary
-############################
-FROM caddy:${CADDY_VERSION}-builder AS builder
-
-RUN --mount=type=cache,target=/go/pkg/mod \
-    --mount=type=cache,target=/root/.cache/go-build \
-    xcaddy build \
-      --source github.com/caddyserver/caddy/v2@v${CADDY_VERSION} \
-      --with   github.com/caddy-dns/cloudflare@latest \
-      --with   github.com/lucaslorentz/caddy-docker-proxy/v2@v2.9.0
-
-
-############################
-# Final runtime image
-############################
-FROM caddy:${CADDY_VERSION}
+FROM caddy:latest
 
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
