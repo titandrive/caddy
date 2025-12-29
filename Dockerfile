@@ -9,3 +9,5 @@ FROM caddy:latest
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
 
 CMD ["caddy", "docker-proxy"]
+
+#Builds Caddy with Cloudflare and Dockerproxy Plugins
