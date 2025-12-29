@@ -1,17 +1,11 @@
-# syntax=docker/dockerfile:1
-
-ARG CADDY_VERSION=2.8.4
-
-FROM caddy:${CADDY_VERSION}-builder AS builder
+FROM caddy:2.8.4-builder AS builder
 
 RUN --mount=type=cache,target=/go/pkg/mod \
     --mount=type=cache,target=/root/.cache/go-build \
-    xcaddy build v${CADDY_VERSION} \
+    xcaddy build v2.8.4 \
       --with github.com/caddy-dns/cloudflare@latest \
-      --with github.com/lucaslorentz/caddy-docker-proxy/v2@v2.9.0 \
-      --without=github.com/caddyserver/caddy/v2/modules/logging/zap
+      --with github.com/lucaslorentz/caddy-docker-proxy/v2@v2.9.0
 
-
-FROM caddy:${CADDY_VERSION}
+FROM caddy:2.8.4
 
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
