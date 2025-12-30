@@ -7,7 +7,11 @@ This is a custom [Caddy](https://github.com/caddyserver/caddy) build I made for 
 
 
 ## How to use
-This version of Caddy runs in hybrid mode and requires a minimal Caddyfile to function. You can declare your subdomains either via the file or using docker labels. I primarily use docker labels but rely on Caddyfile declarations for a few of my containers. Below are basic instructions to get up and running. Please refer to the modules' documentation (linked above) for more in depth information. To get started, you will need to setup a Cloudflaire API [token](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/) and create a wildcard (*) A Name entry for your desired subdomain. Caddy will take care of the rest from there. 
+This version of Caddy runs in hybrid mode and requires a minimal Caddyfile to function. You can declare your subdomains via either the Caddyfile or using docker labels. I primarily use docker labels but rely on Caddyfile declarations for a few of my containers that require more complicated configuration. Below are basic instructions to get up and running. Please refer to the modules' documentation (linked above) for more indepth information. To get started, you will need to setup a Cloudflare API [token](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/) and create a wildcard (*) A Name entry for your domain. Caddy will take care of the rest from there. 
+
+The installation requires the following two files to function. The below installation is for Unraid but can be modified for your server configuraiton.
+- /Caddy/caddy.yml
+- /Caddy/Caddyfile
 
 ### caddy.yml
 ```
