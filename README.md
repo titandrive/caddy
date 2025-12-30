@@ -50,7 +50,7 @@ homepage.domain.com {
 	reverse_proxy homepage:3000
 }
 ```
-Once Caddy is running, you can either create a subdomain (complete with HTTPS) via the Cadddyfile (see the homepage example above) or you can do so using Docker labels. Below is an example on how to do that. 
+Once Caddy is running, you can either create a subdomain via the Cadddyfile (see the homepage example above) or you can do so using Docker labels. Below is an example on how to do that. 
 
 ### BentoPDF.yml
 ```
