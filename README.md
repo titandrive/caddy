@@ -67,7 +67,7 @@ services:
       - dockernet
     labels:
       caddy: bentopdf.domain.com
-      caddy.reverse_proxy: "{{upstreams 8080}}"
+      caddy.reverse_proxy: "{{upstreams 8080}}" #configure your desired subdomain and declare the container port
     
 networks:
   dockernet:
