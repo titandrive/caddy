@@ -57,7 +57,7 @@ Once Caddy is running, you can either create a subdomain via the Cadddyfile (see
 services:
   bentopdf:
     image: bentopdf/bentopdf-simple:latest
-    container_name: bentopdfpoop
+    container_name: bentopdf
     restart: unless-stopped
     networks:
       - dockernet
