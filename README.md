@@ -24,7 +24,7 @@ services:
       - CLOUDFLARE_API_TOKEN=[INSERT_TOKEN_HERE]
       - CADDY_DOCKER_CADDYFILE_PATH=/etc/caddy/Caddyfile
     networks:
-      - dockernet #Caddy must be on the same docker network as your containers
+      - dockernet
     ports:
       - "80:80"
       - "443:443"
